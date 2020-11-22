@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get your codenames here!</title>
+
+    <style type="text/css">
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+        }
+
+        .board__wrapper {
+            height: 100vh;
+            background: #816851;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .board__wrapper table {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            padding: 4% 2%;
+        }
+
+        .board__table-wrapper {
+            padding-bottom: min(80%, 100vh);
+            position: absolute;
+            bottom: 50%;
+            left: 50%;
+            transform: translateY(50%) translateX(-50%);
+            width: min(100%, 130vh);
+        }
+
+        .history__wrapper {
+            padding: 10px 20px;
+        }
+
+        .red {
+            background: #ff2f00;
+            color: #ff2f00;
+        }
+
+        .blue {
+            background: #007eff;
+            color: #007eff;
+        }
+
+        .black {
+            background: #333;
+            color: #333;
+        }
+
+        .neutral {
+            background: beige;
+            color: beige;
+        }
+
+        td {
+            padding: 0.7%;
+        }
+
+        td div {
+            width: 100%;
+            height: 100%;
+            border-radius: 10%;
+            border: 1px solid hsl(29, 45%, 19%);
+            box-shadow: inset 0 0 20px -4px white, 3px 3px 9px -6px black;
+        }
+
+        .start-indicator {
+            width: 50%;
+            height: 13%;
+            position: absolute;
+            border-radius: 20%;
+            left: 50%;
+            border: 1px solid hsl(29, 45%, 19%);
+            box-shadow: 0 0 30px 1px currentColor, inset 0 0 15px -5px white;
+        }
+
+        .start-indicator.top {
+            transform: translateY(-80%) translateX(-50%);
+            top: 0;
+        }
+
+        .start-indicator.bottom {
+            transform: translateY(80%) translateX(-50%);
+            bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="board__wrapper">
+        <div class="start-indicator top"></div>
+        <div class="start-indicator bottom"></div>
+
+        <div class="board__table-wrapper">
+            <table></table>
+        </div>
+    </div>
+
+    <!-- <div class="history__wrapper">
+    </div> -->
+
+    <script src="./main.js"></script>
+</body>
+
+</html>
