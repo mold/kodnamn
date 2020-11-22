@@ -53,6 +53,8 @@ function generateBoard() {
 }
 
 function generateCards(tableEl, game) {
+    tableEl.innerHTML = "";
+
     game.board.forEach(row => {
         const rowEl = document.createElement("tr");
         tableEl.appendChild(rowEl);
@@ -76,13 +78,24 @@ function generateCards(tableEl, game) {
     });
 }
 
-function generateMainGame(){
-    generateCards(document.querySelector(".board__wrapper table"), generateBoard());
+function generateMainGame() {
+    try {
+        const audio = document.querySelector("audio");
+        audio.currentTime = 0;
+        audio.play();
+    } catch (e) {}
+
+    const interval = setInterval(() => {
+        generateCards(document.querySelector(".board__wrapper table"), generateBoard());
+    }, 100);
+    setTimeout(() => clearInterval(interval), 3800);
 }
 
 ///////////////////7
 
 generateMainGame();
+window.addEventListener("click", () => confirm("Do you want to generate a new board?") && generateMainGame());
+
 
 window.onbeforeunload = function (e) {
     return "Don't leave";
